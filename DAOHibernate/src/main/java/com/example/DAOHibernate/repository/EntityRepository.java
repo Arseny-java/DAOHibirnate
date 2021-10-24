@@ -19,7 +19,7 @@ public class EntityRepository {
 
     public List<Person> getPersonsByCity(String city) {
         return entityManager.createQuery(
-                        "select p from Person p where p.city_of_living = :city", Person.class)
+                        "select p from Person p where p.cityOfLiving = :city", Person.class)
                 .setParameter("city", city)
                 .getResultList();
     }

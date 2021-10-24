@@ -7,7 +7,7 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/person</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/persons</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">mysql</property>
         <!-- JDBC connection pool (use the built-in) -->

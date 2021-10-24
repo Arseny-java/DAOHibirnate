@@ -7,12 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
@@ -35,8 +32,8 @@ public class DataGenerator implements CommandLineRunner {
                                     .name(names.get(random.nextInt(names.size())))
                                     .surname(surnames.get(random.nextInt(surnames.size())))
                                     .build())
-                            .city_of_living(cities.get(random.nextInt(cities.size())))
-                            .phone_number(String.valueOf(random.nextInt(99999999)))
+                            .cityOfLiving(cities.get(random.nextInt(cities.size())))
+                            .phoneNumber(String.valueOf(random.nextInt(99999999)))
                             .build();
                     entityManager.persist(person);
                 });
