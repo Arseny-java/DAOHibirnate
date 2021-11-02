@@ -3,6 +3,7 @@ package com.example.DAOHibernate.controller;
 import com.example.DAOHibernate.model.Person;
 import com.example.DAOHibernate.service.EntityService;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,5 +38,10 @@ public class EntityController {
     @PreAuthorize("hasRole('ROLE_WRITE') or hasRole('ROLE_DELETE')")
     public List<Person> getPersonsByAge(@RequestParam("age") int age) {
         return service.findAllByPersonId_AgeLessThanOrderByPersonId_Age(age);
+    }
+    @GetMapping("/username")
+    @PostAuthorize("#username == authentication.principal.username")
+    public String named(String username) {
+        return username + " entered the building.";
     }
 }
